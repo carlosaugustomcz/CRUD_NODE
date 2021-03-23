@@ -1,11 +1,11 @@
 import { getRepository } from 'typeorm';
-import { compare } from 'bcryptjs';
+import { compare, hash } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
 import User from '../models/User';
 
 import authConfig from '../config/auth';
-import AppError from '../erros/AppError';
+import AppError from '../errors/AppError';
 
 interface Request {
   login_uuid: string;
@@ -27,16 +27,14 @@ class AuthenticateUserService {
     const user = await usersRepository.findOne({ where: { login_uuid } });
 
     if (!user) {
-      throw new AppError('login Incorreto');
+      throw new AppError('login/password Incorreto');
     }
+    const hashedPassword = await hash(login_password, 8);
 
-    const passwordMatched = await compare(login_password, user.login_password);
-
-    console.log(login_password);
-    console.log(user.login_password);
+    const passwordMatched = await compare(user.login_password, hashedPassword);
 
     if (!passwordMatched) {
-      throw new AppError('password Incorreto');
+      throw new AppError('login/password Incorreto');
     }
 
     const { secret, expiresIn } = authConfig.jwt;

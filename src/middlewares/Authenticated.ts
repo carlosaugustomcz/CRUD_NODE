@@ -3,8 +3,6 @@ import { verify } from 'jsonwebtoken';
 
 import authConfig from '../config/auth';
 
-import AppError from '../erros/AppError';
-
 interface TokenPayload {
   iat: number;
   exp: number;
@@ -19,22 +17,18 @@ export default function Authenticated(
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new AppError('JWT token ausente!');
+    throw new Error('JWT token não encontrado');
   }
 
   const [, token] = authHeader.split(' ');
 
-  try {
-    const decoded = verify(token, authConfig.jwt.secret);
+  const decoded = verify(token, authConfig.jwt.secret);
 
-    const { sub } = decoded as TokenPayload;
+  const { sub } = decoded as TokenPayload;
 
-    request.user = {
-      id: sub,
-    };
+  request.user = {
+    login_uuid: sub,
+  };
 
-    return next();
-  } catch {
-    throw new AppError('Invalido JWT token');
-  }
+  return next();
 }

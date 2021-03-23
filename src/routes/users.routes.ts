@@ -4,11 +4,13 @@ import { Router } from 'express';
 import User from '../models/User';
 
 import UsersRepository from '../repositories/UsersRepository';
-// import authenticated from '../middlewares/Authenticated';
+import authenticated from '../middlewares/Authenticated';
 
 // import fetch from 'node-fetch';
 
 const usersRouter = Router();
+
+usersRouter.use(authenticated);
 
 usersRouter.get('/', async (request, response) => {
   const usersRepository = getRepository(User);
@@ -29,31 +31,23 @@ usersRouter.get('/:userId', async (request, response) => {
 });
 
 usersRouter.delete('/:userId', async (request, response) => {
-  try {
-    const { userId } = request.params;
+  const { userId } = request.params;
 
-    const usersRepository = getCustomRepository(UsersRepository);
+  const usersRepository = getCustomRepository(UsersRepository);
 
-    await usersRepository.deleteUser(userId);
+  await usersRepository.deleteUser(userId);
 
-    return response.status(200).json({ message: 'Usuário Excluído!' });
-  } catch (err) {
-    return response.status(400).json({ error: err.message });
-  }
+  return response.status(200).json({ message: 'Usuário Excluído!' });
 });
 
 usersRouter.put('/:userId', async (request, response) => {
-  try {
-    const user = request.body;
-    const { userId } = request.params;
+  const user = request.body;
+  const { userId } = request.params;
 
-    const usersRepository = getCustomRepository(UsersRepository);
+  const usersRepository = getCustomRepository(UsersRepository);
 
-    await usersRepository.updateUser(user, userId);
+  await usersRepository.updateUser(user, userId);
 
-    return response.status(200).json({ message: 'Usuário Alterado!' });
-  } catch (err) {
-    return response.status(400).json({ error: err.message });
-  }
+  return response.status(200).json({ message: 'Usuário Alterado!' });
 });
 export default usersRouter;

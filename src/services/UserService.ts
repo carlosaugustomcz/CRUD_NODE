@@ -2,7 +2,7 @@ import { getRepository } from 'typeorm';
 
 import User from '../models/User';
 
-import AppError from '../erros/AppError';
+import AppError from '../errors/AppError';
 
 interface Request {
   userId: string;
