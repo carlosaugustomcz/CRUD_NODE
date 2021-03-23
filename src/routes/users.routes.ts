@@ -4,13 +4,32 @@ import { Router } from 'express';
 import User from '../models/User';
 
 import UsersRepository from '../repositories/UsersRepository';
-import authenticated from '../middlewares/Authenticated';
-
-// import fetch from 'node-fetch';
+// import authenticated from '../middlewares/Authenticated';
+import UserService from '../services/UserService';
 
 const usersRouter = Router();
 
-usersRouter.use(authenticated);
+// usersRouter.use(authenticated);
+
+usersRouter.get('/execute', async (request, response) => {
+  const userServices = new UserService();
+
+  fetch('https://randomuser.me/api/?page=3&results=1')
+    .then(resposta => resposta.json())
+    .then(resposta => {
+      userServices.execute(resposta);
+    });
+
+  /*  fetch('https://randomuser.me/api/?page=3&results=1')
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      userServices.execute(data);
+    });
+  */
+  // return response.json(listUsers);
+});
 
 usersRouter.get('/', async (request, response) => {
   const usersRepository = getRepository(User);

@@ -8,6 +8,8 @@ import AppError from './errors/AppError';
 
 import './database';
 
+import CronJob from 'node-cron';
+
 const app = express();
 
 app.use(express.json());
@@ -21,12 +23,16 @@ app.use(
         .json({ status: 'error', message: err.message });
     }
 
-    return response
-      .status(500)
-      .json({ status: 'error', message: 'Internal server error' });
+    // return response
+    //  .status(500)
+    //  .json({ status: 'error', message: 'Internal server error' });
   },
 );
 
 app.listen(3333, () => {
   console.log('Server Started on port 3333');
+
+  // CronJob.schedule('* * * * * *', () => {
+  //   console.log('gerando backup');
+  // });
 });

@@ -1,25 +1,21 @@
-import { getRepository } from 'typeorm';
+// import { getRepository } from 'typeorm';
+import fetch from 'node-fetch';
 
-import User from '../models/User';
-
-import AppError from '../errors/AppError';
-
-interface Request {
-  userId: string;
-}
+// import User from '../models/User';
 
 class UserService {
-  /* public async remove({ userId }: Request): Promise<User> {
-    const usersRepository = getRepository(User);
-
-    const checkUserExists = await usersRepository.findOne({
-      where: { userId },
-    });
-
-    if (!checkUserExists) {
-      throw new AppError('Usuário não existe.');
-    }
-
-    await usersRepository.delete(checkUserExists);
-  } */
+  public async execute(data: JSON): Promise<void> {
+    // const usersRepository = getRepository(User);
+    // fetch('https://randomuser.me/api/?page=3&results=1')
+    //   .then(resposta => resposta.json())
+    //   .then(resposta => console.log(resposta.results));
+    // return listUsuarios;
+    // console.log(listUsuarios);
+    //    const user = usersRepository.create({});
+    //    await usersRepository.save(user);
+    //    return user;
+    console.log(data);
+  }
 }
+
+export default UserService;
