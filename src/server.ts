@@ -2,13 +2,13 @@ import 'reflect-metadata';
 
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
+import CronJob from 'node-cron';
 
 import routes from './routes';
 import AppError from './errors/AppError';
+import UserService from './services/UserService';
 
 import './database';
-
-import CronJob from 'node-cron';
 
 const app = express();
 
@@ -23,16 +23,16 @@ app.use(
         .json({ status: 'error', message: err.message });
     }
 
-    // return response
-    //  .status(500)
-    //  .json({ status: 'error', message: 'Internal server error' });
+    return response
+      .status(500)
+      .json({ status: 'error', message: 'Internal server error' });
   },
 );
 
 app.listen(3333, () => {
   console.log('Server Started on port 3333');
 
-  // CronJob.schedule('* * * * * *', () => {
-  //   console.log('gerando backup');
+  // CronJob.schedule('0 * * * * *', () => {
+  //   new UserService().execute();
   // });
 });
