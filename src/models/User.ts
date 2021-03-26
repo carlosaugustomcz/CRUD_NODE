@@ -21,6 +21,9 @@ class User {
   login_salt: string;
 
   @Column()
+  login_password: string;
+
+  @Column()
   login_md5: string;
 
   @Column()

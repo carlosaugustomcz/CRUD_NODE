@@ -1,8 +1,7 @@
 import { EntityRepository, Repository } from 'typeorm';
 
-import User from '../models/User';
-
 import AppError from '../errors/AppError';
+import User from '../models/User';
 
 @EntityRepository(User)
 class UsersRepository extends Repository<User> {

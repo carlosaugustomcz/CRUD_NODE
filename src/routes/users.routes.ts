@@ -1,12 +1,11 @@
 import { getRepository, getCustomRepository } from 'typeorm';
 
 import { Router } from 'express';
-import User from '../models/User';
 
 import UsersRepository from '../repositories/UsersRepository';
 import authenticated from '../middlewares/Authenticated';
 
-// import fetch from 'node-fetch';
+import User from '../models/User';
 
 const usersRouter = Router();
 
