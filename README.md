@@ -10,6 +10,7 @@ baixar a imagem do Mysql 5.7
 executar o comando no prompt na pasta do projeto: "docker-compose up"
 Irá criar o componente fluxocaixa.
 
+
 Conexão com o MySQL Workbench Baixando o MySQL Workbench Comece baixando o MySQL Workbench https://www.mysql.com/products/workbench/ .
 
 Conectando-se à sua instância MySQL Em seguida, faça uma nova conexão como:
