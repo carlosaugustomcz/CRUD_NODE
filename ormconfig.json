@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-	"host": "localhost",
+	"host": "crud_database",
   "port": 5432,
   "username": "postgres",
   "password": "docker",
@@ -12,6 +12,6 @@
 		"./src/database/migrations/*.ts"
 	],
 	"cli": {
-		"migrationsDir": "./dist/database/migrations"
+		"migrationsDir": "./src/database/migrations"
 	}
 }

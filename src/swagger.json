@@ -1,0 +1,161 @@
+{
+  "openapi": "3.0.0",
+  "info":{
+    "title": "CRUD Documentation",
+    "discription": "This is an API CRUD",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "description": "REST Back-end Challenge 20201209 Running",
+        "responses": {
+          "200": {
+            "description": "REST Back-end Challenge 20201209 Running"
+          }
+        }
+      }
+    },
+    "/users": {
+    "get": {
+      "tags": ["Users"],
+      "sumary": "List all Users",
+      "description": "List all Users",
+      "components": {
+        "securitySchemes": {
+          "bearerToken": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+          },
+          "security":{
+            "bearerToken": []
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "sucess",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "item": {
+                  "type": "object",
+                  "propertis": {
+                    "login_uuid": {
+                      "type" : "string"
+                    },
+                    "login_username": {
+                      "type": "string"
+                    },
+                    "login_password": {
+                      "type": "string"
+                    },
+                    "login_salt": {
+                      "type": "string"
+                    },
+                    "login_md5": {
+                      "type": "string"
+                    },
+                    "login_sha1": {
+                      "type": "string"
+                    },
+                    "login_sha256": {
+                      "type": "string"
+                    },
+                    "dob_date": {
+                      "type": "Date"
+                    },
+                    "dob_age": {
+                      "type": "number"
+                    },
+                    "registered_date": {
+                      "type": "Date"
+                    },
+                    "registered_age": {
+                      "type": "number"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "cell": {
+                      "type": "string"
+                    },
+                    "id_name": {
+                      "type": "string"
+                    },
+                    "id_value": {
+                      "type": "string"
+                    },
+                    "picture_large": {
+                      "type": "string"
+                    },
+                    "picture_medium": {
+                      "type": "string"
+                    },
+                    "picture_thumbnail": {
+                      "type": "string"
+                    },
+                    "nat": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "number"
+                    },
+                    "name_title": {
+                      "type": "string"
+                    },
+                    "name_first": {
+                      "type": "string"
+                    },
+                    "name_last": {
+                      "type": "string"
+                    },
+                    "location_street": {
+                      "type": "string"
+                    },
+                    "location_city": {
+                      "type": "string"
+                    },
+                    "location_state": {
+                      "type": "string"
+                    },
+                    "location_postcode": {
+                      "type": "string"
+                    },
+                    "coordinates_latitude": {
+                      "type": "string"
+                    },
+                    "coordinates_longitude": {
+                      "type": "string"
+                    },
+                    "timezone_offset": {
+                      "type": "string"
+                    },
+                    "timezone_description": {
+                      "type": "string"
+                    },
+                    "imported_t": {
+                      "type": "Date"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "Date"
+                    },
+                    "updated_at": {
+                      "type": "Date"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+}

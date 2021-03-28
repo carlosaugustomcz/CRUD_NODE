@@ -1,14 +1,15 @@
-/* eslint-disable prefer-promise-reject-errors */
 import { getRepository } from 'typeorm';
 import fetch from 'node-fetch';
+
 import User from '../models/User';
 
 class UserService {
   public async execute(): Promise<void> {
     const usersRepository = getRepository(User);
+    const assingRepository = getRepository(assing);
 
-    for (let i = 0; i < 20; i++) {
-      fetch(`https://randomuser.me/api/?page=${i}&results=100`)
+    for (let i = 0; i < 2000; i++) {
+      fetch(`https://randomuser.me/api/?page=${i}&results=1`)
         .then(resposta => {
           if (resposta.ok) {
             return resposta.json();
@@ -57,7 +58,8 @@ class UserService {
             status: 'published',
           };
 
-          usersRepository.save(usersRepository.create(model));
+          const modelUser = usersRepository.create(model);
+          usersRepository.save(modelUser);
         })
         .catch(err => console.log('Error, with message:', err.statusText));
     }

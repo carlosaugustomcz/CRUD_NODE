@@ -9,8 +9,6 @@ import User from '../models/User';
 
 const usersRouter = Router();
 
-usersRouter.use(authenticated);
-
 usersRouter.get('/', async (request, response) => {
   const usersRepository = getRepository(User);
   const users = await usersRepository.find();
@@ -18,7 +16,7 @@ usersRouter.get('/', async (request, response) => {
   return response.json(users);
 });
 
-usersRouter.get('/:userId', async (request, response) => {
+usersRouter.get('/:userId', authenticated, async (request, response) => {
   const { userId } = request.params;
   const usersRepository = getRepository(User);
   const users = await usersRepository.findOne(userId);
@@ -29,7 +27,7 @@ usersRouter.get('/:userId', async (request, response) => {
   return response.json(users);
 });
 
-usersRouter.delete('/:userId', async (request, response) => {
+usersRouter.delete('/:userId', authenticated, async (request, response) => {
   const { userId } = request.params;
 
   const usersRepository = getCustomRepository(UsersRepository);
@@ -39,7 +37,7 @@ usersRouter.delete('/:userId', async (request, response) => {
   return response.status(200).json({ message: 'Usuário Excluído!' });
 });
 
-usersRouter.put('/:userId', async (request, response) => {
+usersRouter.put('/:userId', authenticated, async (request, response) => {
   const user = request.body;
   const { userId } = request.params;
 
