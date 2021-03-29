@@ -27,14 +27,14 @@ class AuthenticateUserService {
     const user = await usersRepository.findOne({ where: { login_uuid } });
 
     if (!user) {
-      throw new AppError('login/password Incorreto');
+      throw new AppError('Incorrect login/password');
     }
     const hashedPassword = await hash(login_password, 8);
 
     const passwordMatched = await compare(user.login_password, hashedPassword);
 
     if (!passwordMatched) {
-      throw new AppError('login/password Incorreto');
+      throw new AppError('Incorrect login/password');
     }
 
     const { secret, expiresIn } = authConfig.jwt;
