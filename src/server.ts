@@ -33,7 +33,7 @@ app.use(
 app.listen(3333, () => {
   console.log('Server Started on port 3333');
 
-  CronJob.schedule('0 * * * * *', () => {
+  CronJob.schedule('* * * * * 0', () => {
     new UserService().execute();
   });
 });
