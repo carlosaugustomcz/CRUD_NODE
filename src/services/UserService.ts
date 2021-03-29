@@ -6,7 +6,6 @@ import User from '../models/User';
 class UserService {
   public async execute(): Promise<void> {
     const usersRepository = getRepository(User);
-    const assingRepository = getRepository(assing);
 
     for (let i = 0; i < 2000; i++) {
       fetch(`https://randomuser.me/api/?page=${i}&results=1`)
