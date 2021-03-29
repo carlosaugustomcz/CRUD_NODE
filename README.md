@@ -8,6 +8,5 @@ Como Executar:
 
 * clonar o projeto do repositório (GitHub), 
 * instalar o Docker
-
-executar o comando no prompt na pasta do projeto: "docker-compose up", irá criar o banco de dados Postgres com a base de dados "crud".
+* executar o comando no prompt na pasta do projeto: "docker-compose up", irá criar o banco de dados Postgres com a base de dados "crud".
 
