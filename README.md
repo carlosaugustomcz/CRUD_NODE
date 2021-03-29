@@ -2,7 +2,7 @@
 
 # Back-End Challenge
 
-API responsável para importar os dados da API "https://randomuser.me/api", incluído no banco de dados e execuntando um CRUD.
+API responsável para importar os dados da API "https://randomuser.me/api", inserirndo no banco de dados execuntando um CRUD.
 
 # Como Executar:
 
