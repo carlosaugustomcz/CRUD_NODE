@@ -14,13 +14,13 @@ API responsável para importar os dados da API "https://randomuser.me/api", incl
   *  npm run typeorm migration:run
   *  npm run dev:server
 
-Documentação dos Endpoints
+# Documentação dos Endpoints
 
 GET
 
 Listar Usuários
 
-http://localhost:3333/users
+# http://localhost:3333/users
 
 GET
 
