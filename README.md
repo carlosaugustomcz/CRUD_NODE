@@ -26,7 +26,7 @@ GET
 
 Busca um Usuario
 
-http://localhost:3333/users/95cc8f79-e04d-4408-ba52-521e2165895b
+# http://localhost:3333/users/95cc8f79-e04d-4408-ba52-521e2165895b
 
 Authorization
 
@@ -41,23 +41,32 @@ Request Params
 155e77ee-ba6d-486f-95ce-0e0c0fb4b919
   
 GET
+
 REST Back-end Challenge 20201209 Running
-http://localhost:3333/
+
+# http://localhost:3333/
 
 DEL
+
 Remover Usuário
-http://localhost:3333/users/81f42e1d-a9ae-41a3-ac71-f52c8517770b
+
+# http://localhost:3333/users/81f42e1d-a9ae-41a3-ac71-f52c8517770b
+
 Make things easier for your teammates with a complete request description.
+
 Authorization
+
 Bearer Token
+
 Token
+
 <token>
  
 PUT
 
 Alterar Usuário
 
-http://localhost:3333/users/95cc8f79-e04d-4408-ba52-521e2165895b
+# http://localhost:3333/users/95cc8f79-e04d-4408-ba52-521e2165895b
 
 Authorization
 
@@ -115,7 +124,7 @@ POST
 
 Autentication session
 
-http://localhost:3333/sessions
+# http://localhost:3333/sessions
 
 Bodyraw (json)
 
