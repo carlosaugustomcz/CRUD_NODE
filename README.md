@@ -15,18 +15,29 @@ API responsável para importar os dados da API "https://randomuser.me/api", incl
   *  npm run dev:server
 
 Documentação dos Endpoints
+
 GET
+
 Listar Usuários
+
 http://localhost:3333/users
 
 GET
+
 Busca um Usuario
+
 http://localhost:3333/users/95cc8f79-e04d-4408-ba52-521e2165895b
+
 Authorization
+
 Bearer Token
+
 Token
+
 <token>
+  
 Request Params
+
 155e77ee-ba6d-486f-95ce-0e0c0fb4b919
   
 GET
