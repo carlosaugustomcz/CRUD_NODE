@@ -54,16 +54,25 @@ Token
 <token>
  
 PUT
+
 Alterar Usuário
+
 http://localhost:3333/users/95cc8f79-e04d-4408-ba52-521e2165895b
-Make things easier for your teammates with a complete request description.
+
 Authorization
+
 Bearer Token
+
 Token
+
 <token>
+  
 Request Params
+
 155e77ee-ba6d-486f-95ce-0e0c0fb4b920
+
 Bodyraw (json)
+
 {
   "login_uuid": "95cc8f79-e04d-4408-ba52-521e2165895b",
   "login_username": "silverswan carlos",
@@ -103,10 +112,13 @@ Bodyraw (json)
 }
   
 POST
+
 Autentication session
+
 http://localhost:3333/sessions
-Make things easier for your teammates with a complete request description.
+
 Bodyraw (json)
+
 JSON
 {
   "login_uuid": "c24aba34-0d4e-4bb7-83e0-716884a3886c",
