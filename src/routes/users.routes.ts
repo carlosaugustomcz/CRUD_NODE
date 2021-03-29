@@ -22,7 +22,7 @@ usersRouter.get('/:userId', authenticated, async (request, response) => {
   const users = await usersRepository.findOne(userId);
 
   if (!users) {
-    return response.status(400).json({ message: 'user not exits!' });
+    return response.status(400).json({ message: 'user not found.' });
   }
   return response.json(users);
 });
